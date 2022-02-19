@@ -1,3 +1,4 @@
+import 'package:custom_curves/clip_shadow_path.dart';
 import 'package:custom_curves/custom_clipper.dart';
 import 'package:flutter/material.dart';
 
@@ -26,15 +27,28 @@ class CurvePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Stack(
         children: [
-          ClipPath(
+          ClipShadowPath(
+            shadow: const BoxShadow(
+              color: Colors.black45,
+              offset: Offset(4, 4),
+              blurRadius: 4,
+              spreadRadius: 8,
+            ),
             clipper: BigClipper(),
             child: Container(
               color: Colors.orangeAccent,
             ),
           ),
-          ClipPath(
+          ClipShadowPath(
+            shadow: const BoxShadow(
+              color: Colors.black45,
+              offset: Offset(4, 4),
+              blurRadius: 4,
+              spreadRadius: 8,
+            ),
             clipper: SmallClipper(),
             child: Container(
               color: Colors.redAccent,
